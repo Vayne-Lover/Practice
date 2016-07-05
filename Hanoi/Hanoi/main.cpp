@@ -25,8 +25,19 @@ void Hanoi(int n,char a,char b,char c)
         Hanoi(n-1, b, a, c);
     }
 }
+void Hanoi1(int n,char a,char b,char c)
+{
+    if(n>0)
+    {
+        Hanoi1(n-1, a, c, b);
+        cout<<a<<"->"<<b<<endl;
+        Hanoi1(n-1, c, b, a);
+    }
+}
+
 int main(int argc, const char * argv[]) {
     //Hanoi(3, 'A', 'B', 'C');
-    cout<<"Hello"<<endl;
+    Hanoi1(3, 'a', 'b', 'c');
+    //cout<<"Hello"<<endl;
     return 0;
 }
