@@ -31,7 +31,19 @@ void AddToTail(ListNode** listNode,int n)
         Node->next=newNode;
     }
 }
-
+void Traversal(ListNode** listNode)
+{
+    if(listNode==nullptr||*listNode==nullptr)
+    {
+        cerr<<"Error"<<endl;
+        return ;
+    }
+    while (*listNode!=nullptr)
+    {
+        cout<<(*listNode)->value<<endl;
+        *listNode=(*listNode)->next;
+    }
+}
 int main(int argc, const char * argv[]) {
     ListNode *a=nullptr;
     ListNode *b=nullptr;
@@ -39,5 +51,7 @@ int main(int argc, const char * argv[]) {
     AddToTail(&a, 6);
     AddToTail(&a, 9);
     AddToTail(&a, 11);
+    Traversal(&a);
+    Traversal(&b);
     return 0;
 }
