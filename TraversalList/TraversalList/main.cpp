@@ -7,6 +7,7 @@
 //
 
 #include <iostream>
+#include <stack>
 using namespace std;
 struct ListNode{
     int value;
@@ -38,13 +39,33 @@ void Traversal(ListNode** listNode)
         cerr<<"Error"<<endl;
         return ;
     }
-    while (*listNode!=nullptr)
+    ListNode* tempNode=*listNode;
+    while (tempNode!=nullptr)
     {
-        cout<<(*listNode)->value<<endl;
-        *listNode=(*listNode)->next;
+        cout<<tempNode->value<<endl;
+        tempNode=tempNode->next;
     }
 }
-int main(int argc, const char * argv[]) {
+void FromEndToStart(ListNode** listNode)
+{
+    if(listNode==nullptr||*listNode==nullptr)
+    {
+        cerr<<"Error"<<endl;
+        return ;
+    }
+    stack<int> sta;
+    ListNode* tempNode=*listNode;
+    while (tempNode!=nullptr)
+    {
+        sta.push(tempNode->value);
+        tempNode=tempNode->next;
+    }
+    while (!sta.empty()) {
+        cout<<sta.top()<<endl;
+        sta.pop();
+    }
+}
+int main(int argc, const char * argv[]) {//Use a temp to finish a traversal otherwise the list point will change
     ListNode *a=nullptr;
     ListNode *b=nullptr;
     AddToTail(&a, 2);
@@ -53,5 +74,7 @@ int main(int argc, const char * argv[]) {
     AddToTail(&a, 11);
     Traversal(&a);
     Traversal(&b);
+    FromEndToStart(&a);
+    FromEndToStart(&b);
     return 0;
 }
