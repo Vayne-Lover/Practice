@@ -7,12 +7,13 @@
 //
 
 #include <iostream>
+#include<list>
 using namespace std;
 struct ListNode{
     int value;
     ListNode* next;
 };
-void AddToTail(ListNode** listNode,int n)
+void AddToTail(ListNode** listNode,int n)//Take care if you just use i it won't be same as &i
 {
     ListNode* newNode=new ListNode();
     newNode->value=n;
@@ -32,7 +33,7 @@ void AddToTail(ListNode** listNode,int n)
     }
 }
 int main(int argc, const char * argv[]) {
-    ListNode *a;
+    ListNode *a=nullptr;
     AddToTail(&a, 2);
     cout<<a->value<<endl;
     return 0;
