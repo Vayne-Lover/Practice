@@ -11,19 +11,31 @@ using namespace std;
 int TheNumberOf1(int n)
 {
     int count=0;
-    unsigned flag=1;
+    unsigned int flag=1;
     while (flag) {
         if(flag&n)
         {
             count+=1;
         }
-        flag=flag<<1;
+        flag=flag<<1;//Do 32 times
+    }
+    return count;
+}
+int TheNumberOfOne(int n)
+{
+    int count=0;
+    while (n) {
+        count+=1;
+        n=n&(n-1);
     }
     return count;
 }
 int main(int argc, const char * argv[]) {
-    int n=0;
+    int n=1024;
+    int n1=-1024;
     int number=TheNumberOf1(n);
     cout<<number<<endl;
+    int number1=TheNumberOfOne(n1);
+    cout<<number1<<endl;
     return 0;
 }
