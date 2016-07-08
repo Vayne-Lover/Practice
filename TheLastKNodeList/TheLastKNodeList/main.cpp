@@ -8,6 +8,8 @@
 
 #include <iostream>
 #include <vector>
+#include <time.h>
+//#include <unistd.h>
 using namespace std;
 struct ListNode
 {
@@ -132,6 +134,8 @@ ListNode* LastKNode1(ListNode** listNode,unsigned int k)//Take care 0
     return resultNode;
 }
 int main(int argc, const char * argv[]) {
+//    clock_t t1;
+//    t1=clock();
     ListNode* a=nullptr;
     ListNode* b=nullptr;
     ListNode* c=nullptr;
@@ -153,5 +157,8 @@ int main(int argc, const char * argv[]) {
     cout<<LastKNode1(&a, 0)<<endl;
     cout<<LastKNode1(&b, 2)<<endl;
     cout<<LastKNode1(&c, 6)<<endl;
+//    clock_t t2;
+//    t2=clock();
+//    cout<<t2-t1<<endl;
     return 0;
 }
