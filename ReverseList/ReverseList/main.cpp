@@ -53,11 +53,11 @@ void RemoveNode(ListNode** listNode,int value)
     else
     {
         ListNode* tempNode=*listNode;
-        while (tempNode->next!=nullptr&&tempNode->value!=value)
+        while (tempNode->next!=nullptr&&tempNode->next->value!=value)
         {
             tempNode=tempNode->next;
         }
-        if(tempNode->next!=nullptr&&tempNode->value==value)
+        if(tempNode->next!=nullptr&&tempNode->next->value==value)
         {
             deleteNode=tempNode->next;
             tempNode->next=tempNode->next->next;

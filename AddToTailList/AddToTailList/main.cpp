@@ -35,6 +35,11 @@ void AddToTail(ListNode** listNode,int n)//Take care if you just use i it won't 
 int main(int argc, const char * argv[]) {
     ListNode *a=nullptr;
     AddToTail(&a, 2);
-    cout<<a->value<<endl;
+    AddToTail(&a, 4);
+    while(a!=nullptr)
+    {
+        cout<<a->value<<endl;
+        a=a->next;
+    }
     return 0;
 }
