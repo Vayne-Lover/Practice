@@ -112,7 +112,7 @@ ListNode* MergeNode(ListNode* headNode1,ListNode* headNode2)//There shoule not b
     return headNode;
 }
 int main(int argc, const char * argv[]) {//Once merged the a and b will change
-    ListNode* a=nullptr;
+    ListNode* a=nullptr;                        //If you don't want to change a,b you should use c,d AddTail to new memory
     ListNode* b=nullptr;
     AddToList(&a, 2);
     AddToList(&a, 6);
