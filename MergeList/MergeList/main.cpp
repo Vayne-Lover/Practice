@@ -88,23 +88,43 @@ ListNode* ReverseNode(ListNode** listNode)
     }
     return reverseNode;
 }
-int main(int argc, const char * argv[]) {
+ListNode* MergeNode(ListNode* headNode1,ListNode* headNode2)//There shoule not be **
+{
+    if(headNode1==nullptr)
+    {
+        return headNode2;
+    }
+    else if(headNode2==nullptr)
+    {
+        return headNode1;
+    }
+    ListNode* headNode=nullptr;
+    if(headNode1->value<headNode2->value)
+    {
+        headNode=headNode1;
+        headNode->next=MergeNode(headNode1->next, headNode2);
+    }
+    else
+    {
+        headNode=headNode2;
+        headNode->next=MergeNode(headNode1, headNode2->next);
+    }
+    return headNode;
+}
+int main(int argc, const char * argv[]) {//Once merged the a and b will change
     ListNode* a=nullptr;
     ListNode* b=nullptr;
-    AddToList(nullptr, 2);
     AddToList(&a, 2);
     AddToList(&a, 6);
     AddToList(&a, 7);
     AddToList(&a, 11);
-    RemoveNode(nullptr, 6);
-    RemoveNode(&b, 6);
-    ReverseNode(nullptr);
-    ReverseNode(&b);
-    ListNode* c=ReverseNode(&a);
-    while(c!=nullptr)
+    AddToList(&b, 1);
+    AddToList(&b, 13);
+    ListNode* newList1=nullptr;
+    while (newList1!=nullptr)
     {
-        cout<<c->value<<endl;
-        c=c->next;
+        cout<<newList1->value<<endl;
+        newList1=newList1->next;
     }
     return 0;
 }
