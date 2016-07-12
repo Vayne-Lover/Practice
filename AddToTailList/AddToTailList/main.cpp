@@ -7,7 +7,7 @@
 //
 
 #include <iostream>
-#include<list>
+#include <list>
 using namespace std;
 struct ListNode{
     int value;
