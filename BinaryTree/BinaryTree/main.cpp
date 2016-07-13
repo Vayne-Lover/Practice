@@ -36,6 +36,28 @@ void Traversal(BinaryTree* tree)
         Traversal(tree->right);
     }
 }
+void MirrorTree(BinaryTree* node)
+{
+    if(node==nullptr)
+    {
+        return;
+    }
+    if(node->left==nullptr || node->right==nullptr)
+    {
+        return;
+    }
+    BinaryTree* temp=node->left;
+    node->left=node->right;
+    node->right=temp;
+    if(node->left)
+    {
+        MirrorTree(node->left);
+    }
+    if(node->right)
+    {
+        MirrorTree(node->right);
+    }
+}
 int main(int argc, const char * argv[]) {
     BinaryTree* a;
     AddToTree(&a, 1);
@@ -54,6 +76,7 @@ int main(int argc, const char * argv[]) {
     a->right=d;
     d->left=e;
     d->right=f;
+    MirrorTree(a);
     Traversal(a);
     return 0;
 }
