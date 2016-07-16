@@ -23,7 +23,7 @@ void AddToTree(BinaryTree** tree,int value)
     *tree=new BinaryTree();
     (*tree)->value=value;
 }
-void Traversal(BinaryTree* tree)
+void Traversal(BinaryTree* tree)//Recursion
 {
     if(tree==nullptr)
     {
@@ -42,7 +42,7 @@ void MirrorTree(BinaryTree* node)
     {
         return;
     }
-    if(node->left==nullptr || node->right==nullptr)
+    if(node->left==nullptr && node->right==nullptr)
     {
         return;
     }

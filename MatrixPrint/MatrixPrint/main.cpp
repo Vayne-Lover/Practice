@@ -8,7 +8,51 @@
 
 #include <iostream>
 using namespace std;
-
+void Print(int start,int* a,int col,int row)
+{
+    int endCol=col-1-start;
+    int endRow=row-1-start;
+    
+    for (int i=start; i<=endCol; ++i)
+    {
+        int number=*(a+start*col+i);
+        cout<<number<<endl;
+    }
+    if(endRow>start)
+    {
+        for(int i=start+1;i<=endRow;++i)
+        {
+            cout<<*(a+i*col+endRow)<<endl;
+        }
+    }
+    if(endCol>start&&endRow>start)
+    {
+        for(int i=endCol-1;i>=start;--i)
+        {
+            cout<<*(a+col*endRow+i)<<endl;
+        }
+    }
+    if(endRow>start&&endCol-1>start)
+    {
+        for(int i=endRow-1;i>=start+1;--i)
+        {
+            cout<<*(a+i*col+start)<<endl;
+        }
+    }
+}
+void PrintMatrix(int* a,int col,int row)
+{
+    if (a==nullptr || col<=0 || row<=0)
+    {
+        return;
+    }
+    int start=0;
+    while(start*2<col&&start*2<row)
+    {
+        Print(start,(int* )a,col,row);
+        ++start;
+    }
+}
 
 int main(int argc, const char * argv[]) {
     int matrix[4][4];
