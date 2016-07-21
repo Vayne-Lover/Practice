@@ -7,6 +7,7 @@
 //
 
 #include <iostream>
+using namespace std;
 struct BinaryTree
 {
     int value;
@@ -32,6 +33,19 @@ int DepthOfTree(BinaryTree* tree)
     int right=DepthOfTree(tree->right);
     return (left>right)?(left+1):(right+1);
 }
+void Traversal(BinaryTree* tree)
+{
+    if(tree==nullptr)
+    {
+        return;
+    }
+    if(tree!=nullptr)
+    {
+        cout<<tree->value<<endl;
+        Traversal(tree->left);
+        Traversal(tree->right);
+    }
+}
 int main(int argc, const char * argv[]) {
     BinaryTree* a;
     AddToTree(&a, 1);
@@ -49,6 +63,8 @@ int main(int argc, const char * argv[]) {
     b->left=c;
     a->right=d;
     d->left=e;
-    d->right=f;
+    e->right=f;
+    cout<<DepthOfTree(a)<<endl;
+    //Traversal(a);
     return 0;
 }
