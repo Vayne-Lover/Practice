@@ -7,9 +7,12 @@
 //
 
 #include <iostream>
+#include <algorithm>
+void XOR()
+{
 
+}
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+    int a[]={3,5,5,6,3,8,9,22,22,4,7,9,4,6};
     return 0;
 }
