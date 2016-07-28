@@ -8,22 +8,24 @@
 
 #include <iostream>
 using namespace std;
-void Sum(int* a,int s)
+void Sum(int* a,int s,int length)
 {
     if (a==nullptr)
     {
         return;
     }
     int start=0;
-    int last=(sizeof(a)/sizeof(int))-1;
+    int last=length-1;
     while (start<last)
     {
         int sum=*(a+start)+*(a+last);
+        //cout<<*(a+start)<<*(a+last)<<sum<<endl;
         if(sum==s)
         {
             cout<<*(a+start)<<" "<<*(a+last)<<endl;
+            break;
         }
-        else if(s>sum)
+        else if(s<sum)
         {
             last--;
         }
@@ -35,6 +37,6 @@ void Sum(int* a,int s)
 }
 int main(int argc, const char * argv[]) {
     int a[]={1,2,3,7,11,15};
-    Sum(a, 12);
+    Sum(a, 12,(sizeof(a)/sizeof(*a)));
     return 0;
 }
