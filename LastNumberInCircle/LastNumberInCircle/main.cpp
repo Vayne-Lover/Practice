@@ -23,5 +23,7 @@ int LastNumberInCircle(int n,int m)
 }
 int main(int argc, const char * argv[]) {
     cout<<LastNumberInCircle(5, 3)<<endl;
+    cout<<LastNumberInCircle(0, 0)<<endl;
+    cout<<LastNumberInCircle(1, 1)<<endl;
     return 0;
 }
