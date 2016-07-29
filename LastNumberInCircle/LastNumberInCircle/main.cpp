@@ -7,9 +7,17 @@
 //
 
 #include <iostream>
-
+using namespace std;
+int LastNumberInCircle(int n,int m)
+{
+    int last=0;
+    for(int i=2;i<=n;++i)
+    {
+        last=(last+m)%i;
+    }
+    return last;
+}
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+    cout<<LastNumberInCircle(5, 3)<<endl;
     return 0;
 }
