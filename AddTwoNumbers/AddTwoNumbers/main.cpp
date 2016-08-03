@@ -7,9 +7,21 @@
 //
 
 #include <iostream>
-
+using namespace std;
+int Add(int a,int b)
+{
+    int num,carry;
+    do
+    {
+        num=a^b;
+        carry=(a&b)<<1;
+        a=num;
+        b=carry;
+    }
+    while(b!=0);
+    return a;
+}
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+    cout<<Add(3,5)<<endl;
     return 0;
 }
