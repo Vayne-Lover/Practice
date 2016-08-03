@@ -23,5 +23,7 @@ int Add(int a,int b)
 }
 int main(int argc, const char * argv[]) {
     cout<<Add(3,5)<<endl;
+    cout<<Add(60,500)<<endl;
+    cout<<Add(0,5550)<<endl;
     return 0;
 }
