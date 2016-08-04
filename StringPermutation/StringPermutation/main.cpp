@@ -13,6 +13,7 @@ void Permutation(char*a,char*b)
     if(*b=='\0')
     {
         cout<<a<<endl;
+        //printf("%s\n",a);
     }
     else
     {
@@ -37,6 +38,9 @@ void StringPermutation(char* a)
     Permutation(a,a);
 }
 int main(int argc, const char * argv[]) {
-    
+    char a[]="";
+    char cha[]="abd";
+    StringPermutation(a);
+    StringPermutation(cha);
     return 0;
 }
