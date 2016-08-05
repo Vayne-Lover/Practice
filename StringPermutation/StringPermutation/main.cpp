@@ -39,7 +39,7 @@ void StringPermutation(char* a)
 }
 int main(int argc, const char * argv[]) {
     char a[]="";
-    char cha[]="abd";
+    char cha[]="abc";
     StringPermutation(a);
     StringPermutation(cha);
     return 0;
