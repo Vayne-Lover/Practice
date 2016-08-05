@@ -25,8 +25,19 @@ bool IsUgly(int n)
     return n==1?true:false;
 }
 int main(int argc, const char * argv[]) {
-    cout<<IsUgly(15)<<endl;
-    cout<<IsUgly(6)<<endl;
-    cout<<IsUgly(11)<<endl;
+//    cout<<IsUgly(15)<<endl;
+//    cout<<IsUgly(6)<<endl;
+//    cout<<IsUgly(11)<<endl;
+    int count=0;
+    int i=1;
+    while(count<10)
+    {
+        if(IsUgly(i))
+        {
+            count++;
+            cout<<i<<endl;
+        }
+        i++;
+    }
     return 0;
 }
