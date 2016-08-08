@@ -76,16 +76,19 @@ int main(int argc, const char * argv[]) {
 //    cout<<IsUgly(15)<<endl;
 //    cout<<IsUgly(6)<<endl;
 //    cout<<IsUgly(11)<<endl;
-    int count=0;
-    int i=0;
-    while(count<10)
-    {
-        if(IsUgly(i))
-        {
-            count++;
-            cout<<i<<endl;
-        }
-        i++;
-    }
+//    int count=0;
+//    int i=0;
+//    while(count<10)
+//    {
+//        if(IsUgly(i))
+//        {
+//            count++;
+//            cout<<i<<endl;
+//        }
+//        i++;
+//    }
+    cout<<Solution(0)<<endl;
+    cout<<Solution(5)<<endl;
+    cout<<Solution(10)<<endl;
     return 0;
 }
