@@ -34,6 +34,44 @@ int Min(int a,int b,int c)
     int min=(temp<c)?temp:c;
     return min;
 }
+int Solution(int index)
+{
+    if(index<=0)
+    {
+        return 0;
+    }
+    
+    int *number=new int[index];
+    number[0]=1;
+    int next=1;
+    int *num2=number;
+    int *num3=number;
+    int *num5=number;
+    
+    while(next>index)
+    {
+        int min=Min(*num2,*num3,*num5);
+        number[next]=min;
+        
+        while(*num2*2<=number[next])
+        {
+            ++num2;
+        }
+        while(*num3*3<=number[next])
+        {
+            ++num3;
+        }
+        while(*num5*5<=number[next])
+        {
+            ++num5;
+        }
+        ++next;
+    }
+    
+    int ugly=number[next-1];
+    delete [] number;
+    return ugly;
+}
 int main(int argc, const char * argv[]) {
 //    cout<<IsUgly(15)<<endl;
 //    cout<<IsUgly(6)<<endl;
