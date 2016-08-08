@@ -48,9 +48,9 @@ int Solution(int index)
     int *num3=number;
     int *num5=number;
     
-    while(next>index)
+    while(next<index)
     {
-        int min=Min(*num2,*num3,*num5);
+        int min=Min(*num2*2,*num3*3,*num5*5);
         number[next]=min;
         
         while(*num2*2<=number[next])
