@@ -7,9 +7,24 @@
 //
 
 #include <iostream>
-
+using namespace std;
+class SealedClass
+{
+public:
+    static SealedClass* GetInstance()
+    {
+        return new SealedClass();
+    }
+    static void DeleteInstance(SealedClass* ins)
+    {
+        delete ins;
+    }
+private:
+    SealedClass(){cout<<"Create an instance"<<endl;};
+    ~SealedClass(){cout<<"Delete an instance"<<endl;};
+};
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+    SealedClass*  a=SealedClass::GetInstance();
+    SealedClass::DeleteInstance(a);
     return 0;
 }
