@@ -23,8 +23,24 @@ private:
     SealedClass(){cout<<"Create an instance"<<endl;};
     ~SealedClass(){cout<<"Delete an instance"<<endl;};
 };
+
+template<class T>class Sealed
+{
+    friend T;
+private:
+    Sealed(){};
+    ~Sealed(){};
+};
+class NewSealed:virtual public Sealed<NewSealed>
+{
+public:
+    NewSealed(){cout<<"Create an instance"<<endl;};
+    ~NewSealed(){cout<<"Delete an instance"<<endl;};
+};
 int main(int argc, const char * argv[]) {
     SealedClass*  a=SealedClass::GetInstance();
     SealedClass::DeleteInstance(a);
+    NewSealed* b=new NewSealed();
+    delete b;
     return 0;
 }
