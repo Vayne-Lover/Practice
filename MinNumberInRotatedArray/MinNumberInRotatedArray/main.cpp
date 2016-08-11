@@ -25,7 +25,9 @@ int Min(int* numbers,int length)
 {
     if(numbers==nullptr||length<=0)
     {
-        throw new std::exception("Invalid parameters");
+        //throw new std::exception("Invalid parameters");
+        cerr<<"Error Input"<<endl;
+        return -1;
     }
     int id1=0;
     int id2=length-1;
@@ -55,6 +57,14 @@ int Min(int* numbers,int length)
     return numbers[mid];
 }
 int main(int argc, const char * argv[]) {
-    
+    int a[]={1,1,0,1,2};
+    int b[]={1,2,3,4,5};
+    int c[]={4,5,1,2,3};
+    int* d=nullptr;
+    cout<<Min(a, 5)<<endl;
+    cout<<Min(b, 5)<<endl;
+    cout<<Min(c, 5)<<endl;
+    cout<<Min(d, 5)<<endl;
+    cout<<Min(a, 4)<<endl;
     return 0;
 }
