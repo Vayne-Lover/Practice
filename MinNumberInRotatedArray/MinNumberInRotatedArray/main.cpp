@@ -9,6 +9,18 @@
 #include <iostream>
 #include <exception>
 using namespace std;
+int MinOrder(int* numbers,int id1,int id2)
+{
+    int result=numbers[id1];
+    for(int i=id1+1;i<=id2;++i)
+    {
+        if(result>numbers[i])
+        {
+            result=numbers[i];
+        }
+    }
+    return result;
+}
 int Min(int* numbers,int length)
 {
     if(numbers==nullptr||length<=0)
@@ -27,6 +39,10 @@ int Min(int* numbers,int length)
         }
         
         mid=(id1+id2)/2;
+        if(numbers[mid]==numbers[id1]&&numbers[mid]==numbers[id2])
+        {
+            return MinOrder(numbers,id1,id2);
+        }
         if(numbers[mid]>=numbers[id1])
         {
             id1=mid;
@@ -39,7 +55,6 @@ int Min(int* numbers,int length)
     return numbers[mid];
 }
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+    
     return 0;
 }
