@@ -74,6 +74,14 @@ bool Vertify(int* seq,int len)
     return left&&right;
 }
 int main(int argc, const char * argv[]) {
-    
+    int num1[]={5,7,6,9,11,8};
+    int num2[]={7,4,6,5};
+    int* a=nullptr;
+    int* b=num1;
+    int* c=num2;
+    cout<<Vertify(a, 6)<<endl;
+    cout<<Vertify(a, 0)<<endl;
+    cout<<Vertify(b, 6)<<endl;
+    cout<<Vertify(c, 4)<<endl;
     return 0;
 }
