@@ -36,6 +36,43 @@ void Traversal(BinaryTree* tree)
         Traversal(tree->right);
     }
 }
+bool Vertify(int* seq,int len)
+{
+    if(seq==nullptr||len<=0)
+    {
+        cerr<<"Nullptr or err length"<<endl;
+        return false;
+    }
+    int root=*(seq+len-1);
+    int i=0;
+    for(;i<len-1;++i)
+    {
+        if(*(seq+i)>root)
+        {
+            break;
+        }
+    }
+    
+    int j=i;
+    for(;j<len-1;++j)
+    {
+        if(*(seq+j)<root)
+        {
+            return false;
+        }
+    }
+    bool left=true;
+    if(i>0)
+    {
+        left=Vertify(seq, i);
+    }
+    bool right=true;
+    if(i<len-1)
+    {
+        right=Vertify(seq+i,len-1-i);
+    }
+    return left&&right;
+}
 int main(int argc, const char * argv[]) {
     
     return 0;
