@@ -13,6 +13,19 @@ struct ComplexListNode
     ComplexListNode* next;
     ComplexListNode* Sibling;
 };
+void CloneNodes(ComplexListNode* head)
+{
+    ComplexListNode* node=head;
+    while(node!=nullptr)
+    {
+        ComplexListNode* cloned=new ComplexListNode();
+        cloned->value=node->value;
+        cloned->next=node->next;
+        cloned->Sibling=node->Sibling;
+        node->next=cloned;
+        node=cloned->next;
+    }
+}
 int main(int argc, const char * argv[]) {
     // insert code here...
     std::cout << "Hello, World!\n";
