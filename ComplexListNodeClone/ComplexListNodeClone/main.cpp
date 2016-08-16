@@ -62,8 +62,26 @@ ComplexListNode* ReconnectNodes(ComplexListNode* head)
     
     return clonedNode;
 }
+ComplexListNode* Clone(ComplexListNode* head)
+{
+    CloneNodes(head);
+    ConnectSiblingNodes(head);
+    return ReconnectNodes(head);
+}
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+    ComplexListNode* a=nullptr;
+    ComplexListNode* b=nullptr;
+    ComplexListNode* c=nullptr;
+    
+    a->value=1;
+    b->value=2;
+    c->value=3;
+    
+    a->Sibling=b;
+    b->Sibling=c;
+    c->Sibling=a;
+    
+    ComplexListNode* newList=Clone(a);
+    
     return 0;
 }
