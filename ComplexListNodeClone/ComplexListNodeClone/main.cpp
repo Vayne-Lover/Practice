@@ -7,11 +7,12 @@
 //
 
 #include <iostream>
+using namespace std;
 struct ComplexListNode
 {
     int value;
     ComplexListNode* next;
-    ComplexListNode* Sibling;
+    ComplexListNode* sibling;
 };
 void CloneNodes(ComplexListNode* head)
 {
@@ -21,7 +22,8 @@ void CloneNodes(ComplexListNode* head)
         ComplexListNode* cloned=new ComplexListNode();
         cloned->value=node->value;
         cloned->next=node->next;
-        cloned->Sibling=node->Sibling;
+        cloned->sibling=node->sibling;
+        
         node->next=cloned;
         node=cloned->next;
     }
@@ -32,9 +34,9 @@ void ConnectSiblingNodes(ComplexListNode* head)
     while(node!=nullptr)
     {
         ComplexListNode* cloned=node->next;
-        if(node->Sibling!=nullptr)
+        if(node->sibling!=nullptr)
         {
-            cloned->Sibling=node->Sibling->next;
+            cloned->sibling=node->sibling->next;
         }
         node=cloned->next;
     }
@@ -58,8 +60,9 @@ ComplexListNode* ReconnectNodes(ComplexListNode* head)
         clonedNode=clonedNode->next;
         node->next=clonedNode->next;
         node=node->next;
+        
     }
-    
+    //cout<<clonedNode->next<<endl;
     return clonedNode;
 }
 ComplexListNode* Clone(ComplexListNode* head)
@@ -68,20 +71,50 @@ ComplexListNode* Clone(ComplexListNode* head)
     ConnectSiblingNodes(head);
     return ReconnectNodes(head);
 }
+void Traversal(ComplexListNode* head)
+{
+    if(head==nullptr)
+    {
+        cerr<<"Nullptr"<<endl;
+        return;
+    }
+    ComplexListNode* temp=head;
+    while(temp!=nullptr)
+    {
+        cout<<"Self Value:"<<temp->value<<endl;
+        cout<<"Sibling Value:"<<temp->sibling->value<<endl;
+        temp=temp->next;
+    }
+}
 int main(int argc, const char * argv[]) {
-    ComplexListNode* a=nullptr;
-    ComplexListNode* b=nullptr;
-    ComplexListNode* c=nullptr;
+    ComplexListNode* a=new ComplexListNode();
+    ComplexListNode* b=new ComplexListNode();
+    ComplexListNode* c=new ComplexListNode();
+    ComplexListNode* d=new ComplexListNode();
+    ComplexListNode* e=new ComplexListNode();
     
     a->value=1;
     b->value=2;
     c->value=3;
+    d->value=4;
+    e->value=5;
     
-    a->Sibling=b;
-    b->Sibling=c;
-    c->Sibling=a;
+    a->next=b;
+    b->next=c;
+    c->next=d;
+    d->next=e;
+    e->next=nullptr;
+    
+    a->sibling=b;
+    b->sibling=c;
+    c->sibling=d;
+    d->sibling=e;
+    e->sibling=a;
     
     ComplexListNode* newList=Clone(a);
+    //Traversal(a);
+    //cout<<newList->next->value<<endl;
+    Traversal(newList);
     
     return 0;
 }
