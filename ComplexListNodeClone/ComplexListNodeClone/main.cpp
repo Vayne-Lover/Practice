@@ -62,8 +62,7 @@ ComplexListNode* ReconnectNodes(ComplexListNode* head)
         node=node->next;
         
     }
-    //cout<<clonedNode->next<<endl;
-    return clonedNode;
+    return clonedHead;
 }
 ComplexListNode* Clone(ComplexListNode* head)
 {
@@ -112,8 +111,7 @@ int main(int argc, const char * argv[]) {
     e->sibling=a;
     
     ComplexListNode* newList=Clone(a);
-    //Traversal(a);
-    //cout<<newList->next->value<<endl;
+    Traversal(a);
     Traversal(newList);
     
     return 0;
