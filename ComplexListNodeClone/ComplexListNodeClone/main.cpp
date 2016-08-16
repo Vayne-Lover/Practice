@@ -39,6 +39,29 @@ void ConnectSiblingNodes(ComplexListNode* head)
         node=cloned->next;
     }
 }
+ComplexListNode* ReconnectNodes(ComplexListNode* head)
+{
+    ComplexListNode* node=head;
+    ComplexListNode* clonedHead=nullptr;
+    ComplexListNode* clonedNode=nullptr;
+    
+    if(node!=nullptr)
+    {
+        clonedHead=clonedNode=node->next;
+        node->next=clonedNode->next;
+        node=node->next;
+    }
+    
+    while(node!=nullptr)
+    {
+        clonedNode->next=node->next;
+        clonedNode=clonedNode->next;
+        node->next=clonedNode->next;
+        node=node->next;
+    }
+    
+    return clonedNode;
+}
 int main(int argc, const char * argv[]) {
     // insert code here...
     std::cout << "Hello, World!\n";
