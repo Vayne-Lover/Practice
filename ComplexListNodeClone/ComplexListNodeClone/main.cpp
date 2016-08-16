@@ -26,6 +26,19 @@ void CloneNodes(ComplexListNode* head)
         node=cloned->next;
     }
 }
+void ConnectSiblingNodes(ComplexListNode* head)
+{
+    ComplexListNode* node=head;
+    while(node!=nullptr)
+    {
+        ComplexListNode* cloned=node->next;
+        if(node->Sibling!=nullptr)
+        {
+            cloned->Sibling=node->Sibling->next;
+        }
+        node=cloned->next;
+    }
+}
 int main(int argc, const char * argv[]) {
     // insert code here...
     std::cout << "Hello, World!\n";
