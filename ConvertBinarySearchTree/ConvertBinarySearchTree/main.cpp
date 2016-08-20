@@ -36,6 +36,41 @@ void Traversal(BinaryTree* tree)//Recursion
         Traversal(tree->right);
     }
 }
+void ConvertNode(BinaryTree* node,BinaryTree** lastNode)
+{
+    if(node==nullptr)
+    {
+        return;
+    }
+    BinaryTree* current=node;
+    if(current->left!=nullptr)
+    {
+        ConvertNode(current->left,lastNode);
+    }
+    current->left=*lastNode;
+    if(*lastNode!=nullptr)
+    {
+        (*lastNode)->right=current;
+    }
+    *lastNode=current;
+    if(current->right!=nullptr)
+    {
+        ConvertNode(current->right, lastNode);
+    }
+}
+BinaryTree* Convert(BinaryTree* root)
+{
+    BinaryTree* lastNode=nullptr;
+    ConvertNode(root, &lastNode);
+    BinaryTree*head=nullptr;
+    BinaryTree* headNode=lastNode;
+    while(headNode!=nullptr&&headNode->left!=nullptr)
+    {
+        headNode=head->left;
+    }
+    return head;
+}
+
 int main(int argc, const char * argv[]) {
     // insert code here...
     std::cout << "Hello, World!\n";
