@@ -7,6 +7,7 @@
 //
 
 #include <iostream>
+using namespace std;
 int Longestaba(char * s,int n)
 {
     int i,j,max,c;
@@ -47,6 +48,7 @@ int Longestaba(char * s,int n)
     return max;
 }
 int main(int argc, const char * argv[]) {
-    
+    char ch[]="ggadcdag";
+    cout<<Longestaba(ch, 8)<<endl;
     return 0;
 }
