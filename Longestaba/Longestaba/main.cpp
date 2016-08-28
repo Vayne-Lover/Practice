@@ -47,8 +47,36 @@ int Longestaba(char * s,int n)
     }
     return max;
 }
+void Manacher(char s[],int p[],int n)
+{
+    int i;
+    int mx=0;
+    int id=0;
+    
+    for(i=1;i<n;++i)
+    {
+        if(mx>i)
+        {
+            p[i]=p[2*id-i]<mx-i?p[2*id-i]: mx-i;
+        }
+        else
+        {
+            p[i]=1;
+        }
+        while(s[i+p[i]]==s[i-p[i]])
+        {
+            p[i]++;
+        }
+        if(p[i]+i>mx)
+        {
+            mx=p[i]+i;
+            id=i;
+        }
+    }
+}
 int main(int argc, const char * argv[]) {
     char ch[]="ggadcdag";
+
     cout<<Longestaba(ch, 8)<<endl;
     return 0;
 }
