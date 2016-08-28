@@ -76,7 +76,16 @@ void Manacher(char s[],int p[],int n)
 }
 int main(int argc, const char * argv[]) {
     char ch[]="ggadcdag";
-
+    char ch1[]="#1#2#2#1#2#4#2#1#";
+    int p[]={1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1};
     cout<<Longestaba(ch, 8)<<endl;
+    Manacher(ch1, p, 17);
+    int max=0;
+    for(int i=0;i<17;++i)
+    {
+        if(p[i]>max)
+            max=p[i];
+    }
+    cout<<max-1<<endl;
     return 0;
 }
