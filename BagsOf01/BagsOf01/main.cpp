@@ -9,7 +9,8 @@
 #include <iostream>
 using namespace std;
 int findM(int N,int K,int G[],int W[])
-{    int *M=new int[N+1],i,j,k;
+{
+    int *M=new int[N+1],i,j,k;
     for(i=0;i<N+2;i++)
         M[i]=0;
     for(i=0;i<K;i++)
@@ -25,6 +26,17 @@ int findM(int N,int K,int G[],int W[])
     return M[N];
 }
 int main(int argc, const char * argv[]) {
-
+    int N,K,i;
+    while(cin>>N>>K)
+    {
+        int *G=new int[K];
+        int *W=new int[K];
+        for(i=0;i<K;i++)
+            cin>>G[i]>>W[i];
+        cout<<findM(N,K,G,W)<<endl;
+        delete []G;
+        delete []W;
+    }
+    return 0;
     return 0;
 }
