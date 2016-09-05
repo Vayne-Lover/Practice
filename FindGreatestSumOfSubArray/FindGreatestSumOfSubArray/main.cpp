@@ -30,6 +30,8 @@ int Find(int* n,int len)
 }
 int main(int argc, const char * argv[]) {
     int a[]={1,-2,3,10,-4,7,2,-5};
-    cout<<Find(a, 8)<<endl;
+    int b[]={};
+    cout<<Find(a, sizeof(a)/sizeof(int))<<endl;
+    cout<<Find(b, sizeof(b)/sizeof(int))<<endl;
     return 0;
 }
