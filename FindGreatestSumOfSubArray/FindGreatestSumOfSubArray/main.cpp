@@ -7,9 +7,29 @@
 //
 
 #include <iostream>
-
+using namespace std;
+int Find(int* n,int len)
+{
+    if(n==nullptr||len<=0)
+    {
+        return 0;
+    }
+    int now=0;
+    int max=0;
+    for(int i=0;i<len;++i)
+    {
+        if(now<0)
+            now=n[i];
+        else
+            now+=n[i];
+        
+        if(now>max)
+            max=now;
+    }
+    return max;
+}
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+    int a[]={1,-2,3,10,-4,7,2,-5};
+    cout<<Find(a, 8)<<endl;
     return 0;
 }
