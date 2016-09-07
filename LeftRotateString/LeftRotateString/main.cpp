@@ -7,6 +7,7 @@
 //
 
 #include <iostream>
+using namespace std;
 void Reverse(char* begin,char* end)
 {
     if(begin==nullptr || end==nullptr)
@@ -32,15 +33,22 @@ char* LeftRotateString(char* str,int n,int len)
             char* start1=str;
             char* end1=str+n-1;
             char* start2=str+n;
-            char* end2=str+len-1;
+            char* end2=str+len-2;
             Reverse(start1, end1);
+            cout<<start1<<endl;
             Reverse(start2, end2);
+            cout<<start1<<endl;
             Reverse(start1, end2);
         }
     }
     return str;
 }
 int main(int argc, const char * argv[]) {
-    
+    char a[]="abcdefg";
+    char b[]="";
+    LeftRotateString(a, 2, sizeof(a)/sizeof(char));
+    LeftRotateString(b, -1, sizeof(b)/sizeof(char));
+    cout<<a<<endl;
+    cout<<b<<endl;
     return 0;
 }
